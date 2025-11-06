@@ -1,0 +1,220 @@
+body {
+    font-family: 'Times New Roman';
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+}
+
+.container {
+    width: 600px;
+    border: 2px solid #800000;
+    padding: 0;
+    background-color: #fff;
+}
+
+.title {
+    text-align: center;
+    color: #0066cc;
+    font-size: 18px;
+    font-weight: bold;
+    margin: 10px 0;
+    margin-bottom: 5px;
+}
+
+table {
+    width: 95%;
+    border-collapse: collapse;
+    border: 5px groove #800080;
+    margin-left: 15px;
+    margin-right: 20px;
+    margin-bottom: 20px;
+    background-color: #ffcccc;
+}
+
+td {
+    padding: 5px;
+    border: 2px solid #c69393;
+}
+
+td:first-child {
+    width: 28%;
+    background-color: #ffcccc;
+    color: #0066cc;
+    font-weight: bold;
+    padding-left: 10px;
+}
+
+input[type="text"], input[type="password"] {
+    width: 90%;
+    padding: 3px;
+    box-sizing: border-box;
+    background-color: #006699;
+    color: #9cff33;
+    border: 1.3px solid #a67549;
+}
+
+textarea {
+    width: 90%;
+    height: 80px;
+    background-color: #006699;
+    color: #9cff33;
+    border: 1.3px solid #a67549;
+    resize: vertical;
+    overflow-y: scroll;
+}
+
+select {
+    width: 90%;
+    padding: 3px;
+    background-color: #006699;
+    color: #9cff33;
+    border: 1.3px solid #a67549;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-image: linear-gradient(45deg, transparent 50%, white 50%),
+                    linear-gradient(135deg, white 50%, transparent 50%);
+    background-position: calc(100% - 10px) 50%,
+                       calc(100% - 5px) 50%;
+    background-size: 5px 5px,
+                   5px 5px;
+    background-repeat: no-repeat;
+    padding-right: 20px;
+}
+
+select::-ms-expand {
+    display: none;
+
+}
+
+select option {
+    background-color: #006699;
+    color: #9cff33;
+}
+.text9{
+    text-align: left;
+    vertical-align: top;
+}
+
+.button-container {
+    text-align: center;
+    margin: 10px 0;
+}
+
+.button-container button {
+    padding: 3px 15px;
+    margin: 0 5px;
+    background-color: white;
+    border: 1.5px solid #008cff;
+    border-radius: 3px;
+    cursor: pointer;
+    position: relative;
+}
+
+.button-container button:hover {
+    outline: 1px dotted black;
+    outline-offset: -4px;
+    border: 1.5px solid #008cff;
+    background-color: #dff1ff;
+}        
+
+
+.button-container button:active {
+    background-color: #e6e6e6;
+}
+
+.file-input {
+    display: flex;
+    border: none;
+    position: relative;
+    width: 88%;
+}
+
+.file-input input[type="text"] {
+    flex-grow: 1;
+    margin-right: 5px;
+    border: 1.3px solid #a67549;
+}
+
+.file-input input[type="file"] {
+    position: absolute;
+    opacity: 0;
+    right: 0;
+    top: 0;
+    cursor: pointer;
+    height: 100%;
+    width: 80px;
+}
+
+.browse-button {
+    background-color: #ece9d8;
+    border: 2px solid #a67549;
+    cursor: pointer;
+    z-index: 1;
+    width: 30%;
+}
+
+input[type="radio"] {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    width: 12px;
+    height: 12px;
+    border: 1px solid #006699;
+    background-color: white;
+    border-radius: 50%;
+    outline: none;
+    vertical-align: text-top;
+    position: relative;
+}
+
+input[type="radio"]:checked {
+    background-color: white;
+}
+
+input[type="radio"]:checked::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 5px;
+    height: 5px;
+    background-color: green;
+    border-radius: 50%;
+}
+
+input[type="checkbox"] {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    width: 12px;
+    height: 12px;
+    border: 1px solid #006699;
+    outline: none;
+    margin-right: 5px;
+    vertical-align:text-bottom;
+    position: relative;
+    background-color: white;
+}
+
+input[type="checkbox"]:checked::before {
+    
+    content: '✓';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: green;
+    font-size: 11px;
+    font-weight: bolder;
+}
+
+label {
+    margin-right: 10px;
+    color: blue;
+}
+
+.radio-label, .checkbox-label {
+    color: blue;
+}

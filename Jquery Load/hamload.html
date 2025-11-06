@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>jQuery Load Demo</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+    $(document).ready(function(){
+        $("#txn").click(function(){ 
+            $("#data").load("txn.html"); 
+        }); 
+        
+        $("#tnb").click(function(){ 
+            $("#data").load("tnb.html"); 
+        });
+    });
+    </script>
+</head>
+<body>
+    <button id="txn">Tin Xã Hội</button>
+    <button id="tnb">Tin Thể Thao</button>
+    <div id="data"></div>
+</body>
+</html>

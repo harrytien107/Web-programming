@@ -1,0 +1,123 @@
+Dưới đây là giải thích chi tiết từng phần của code trong file index.php mà bạn đang sử dụng cho phân trang sản phẩm:
+
+1. Kết nối CSDL MySQL
+php
+CopyInsert
+$host = 'localhost';
+$user = 'root'; // Thay đổi nếu user khác
+$pass = '';
+$db = 'webtintuc';
+$link = mysqli_connect($host, $user, $pass, $db);
+if (!$link) {
+    die('Không thể kết nối MySQL: ' . mysqli_connect_error());
+}
+mysqli_set_charset($link, 'utf8');
+Mục đích: Kết nối đến MySQL database.
+Ý nghĩa từng dòng:
+$host, $user, $pass, $db: Thông tin kết nối đến CSDL.
+mysqli_connect(...): Hàm kết nối, trả về biến $link.
+Kiểm tra nếu kết nối thất bại thì dừng chương trình và báo lỗi.
+mysqli_set_charset(...): Đặt bộ mã ký tự là UTF-8 để tránh lỗi tiếng Việt.
+
+2. Thiết lập số sản phẩm/trang
+php
+CopyInsert
+$sd=5;
+Ý nghĩa: Số sản phẩm hiển thị trên 1 trang (ở đây là 5).
+
+3. Lấy tổng số sản phẩm
+php
+CopyInsert
+$sl="select * from webtm_sanpham";
+$kq=mysqli_query($link,$sl);
+$sp=mysqli_num_rows($kq);
+Ý nghĩa:
+$sl: Câu truy vấn lấy tất cả sản phẩm.
+$kq: Kết quả truy vấn.
+$sp: Đếm tổng số dòng (sản phẩm) trả về.
+
+4. Tính tổng số trang
+php
+CopyInsert
+$st=ceil($sp/$sd);
+Ý nghĩa: Tính tổng số trang cần thiết để hiển thị hết sản phẩm.
+ceil: Làm tròn lên (nếu chia dư thì vẫn phải có thêm 1 trang).
+
+5. Xác định trang hiện tại
+php
+CopyInsert
+if(isset($_GET['page'])) $page=$_GET['page']; else $page=1;
+Ý nghĩa: Lấy số trang hiện tại từ URL (tham số page). Nếu chưa có thì mặc định là trang 1.
+
+6. Xác định vị trí bắt đầu lấy sản phẩm
+php
+CopyInsert
+$vt=($page-1)*$sd;
+Ý nghĩa: Tính vị trí sản phẩm đầu tiên trên trang hiện tại (dùng cho truy vấn LIMIT).
+
+7. Truy vấn lấy sản phẩm theo trang
+php
+CopyInsert
+$sl2="select * from webtm_sanpham limit $vt,$sd";
+$kq2=mysqli_query($link,$sl2);
+Ý nghĩa: Lấy đúng số sản phẩm cho trang hiện tại, bắt đầu từ vị trí $vt, lấy $sd sản phẩm.
+
+8. Hiển thị bảng sản phẩm
+php
+CopyInsert
+<table width="500" border="1" cellspacing="0" cellpadding="0">
+<tbody>
+<tr>
+    <th width="65" scope="col">STT</th>
+    <th width="254" scope="col">Tên Sản phẩm</th>
+    <th width="224" scope="col">Hình</th>
+    <th width="147" scope="col">Giá</th>
+</tr>
+<?php
+$i=1;
+while($d2=mysqli_fetch_array($kq2)){
+?>
+<tr>
+    <td><?php echo $i++;?></td>
+    <td><?php echo $d2['TenSP'];?></td>
+    <td><img src="<?php echo $d2['UrlHinh'];?>" width="100"/></td>
+    <td><?php echo $d2['Gia'];?></td>
+</tr>
+<?php }?>
+</tbody>
+</table>
+Ý nghĩa:
+Tạo bảng hiển thị danh sách sản phẩm.
+Dùng vòng lặp while để lấy từng sản phẩm từ kết quả truy vấn $kq2.
+Hiển thị các trường: số thứ tự (STT), tên sản phẩm, hình ảnh (lấy từ trường UrlHinh), giá.
+
+9. Hiển thị phân trang
+php
+CopyInsert
+<p>Trang <?php for($i=1;$i<=$st;$i++){ 
+    if($page==$i) 
+        echo "<span class='pnow'>$i</span> "; 
+    else 
+        echo "<a href='?page=$i'>$i</a> "; 
+}?></p>
+Ý nghĩa:
+Hiển thị các số trang phía dưới bảng sản phẩm.
+Trang hiện tại sẽ được bôi đỏ (class pnow), các trang còn lại là link để chuyển trang.
+
+10. Kết thúc file
+php
+CopyInsert
+</body>
+</html>
+Kết thúc nội dung HTML.
+Tóm tắt luồng hoạt động:
+
+Kết nối CSDL.
+Lấy tổng số sản phẩm và tính số trang.
+Xác định trang hiện tại và lấy đúng sản phẩm cho trang đó.
+Hiển thị bảng sản phẩm.
+Hiển thị phân trang để người dùng chuyển trang.
+Nếu bạn cần giải thích sâu hơn về đoạn nào hoặc muốn tối ưu/thêm tính năng, hãy nói rõ nhé!
+
+Feedback submitted
+Generating..

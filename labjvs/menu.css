@@ -1,0 +1,28 @@
+#menu { 
+  width: 180px; 
+  background-color: #CC6;
+}
+
+#menu .theloai {
+  background-color: #F63; 
+  color: #FFFFFF; 
+  display: block;
+  padding-top: 5px; 
+  padding-bottom: 5px; 
+  font-weight: bold;
+}
+
+#menu a {
+  color: #990000; 
+  padding-top: 3px; 
+  padding-bottom: 3px; 
+  padding-left: 15px;
+  display: block; 
+  border-bottom: solid 1px #CF0; 
+  text-decoration: none; 
+  font-weight: bold;
+}
+
+#menu a:hover {
+  color: #FF3300;
+}

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Menu with jQuery Formatting</title>
+  <link rel="stylesheet" href="menu.css" type="text/css" />
+</head>
+<body>
+  <div id="menu">
+    <div>
+      <div class="theloai">Tin xã hội</div>
+      <div class="loaitin">
+        <a href="#">Thể thao</a>
+        <a href="#">Du lịch</a>
+        <a href="#">Xã hội</a>
+        <a href="#">Sức khỏe</a>
+        <a href="#">Âm nhạc</a>
+      </div>
+    </div>
+    <div>
+      <div class="theloai">Thế giới web</div>
+      <div class="loaitin">
+        <a href="#">Tools</a>
+        <a href="#">Links</a>
+        <a href="#">Template</a>
+        <a href="#">Document</a>
+      </div>
+    </div>
+    <div>
+      <div class="theloai">Nghệ thuật sống</div>
+      <div class="loaitin">
+        <a href="#">Sống đẹp</a>
+      </div>
+    </div>
+    <div>
+      <div class="theloai">Thư giãn</div>
+      <div class="loaitin">
+        <a href="#">Thơ hay</a>
+        <a href="#">Đố vui</a>
+      </div>
+    </div>
+  </div>
+</body>
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<script>
+//Thay đổi font chữ, màu chữ
+//$(document).ready(function() {
+//$(".loaitin a").css({"color": "blue", "font-style": "italic"});
+//});
+
+//Thay đổi kích thước chữ
+//$(document).ready(function() {
+//$(".loaitin").css({"font-size": "200%"});
+//});
+
+//Khi click vào theloai kích thước font chữ loaitin tăng lên
+  //$ (document) .ready (function () {
+  //$ (".theloai") .click (function () {
+  //var size = $ ('.loaitin') .css ("font-size");
+  //size= parseInt (size);
+  //size=size+2;
+  //size=size+"px";
+  //$ ('.loaitin') .css ("font-size", size)});
+  //});
+  //Khi click vào theloai tất cả loaitin sẽ ẩn, Khi click vào theloai tất cả loaitin sẽ ẩn sau đó hiện ra 
+    //$ (document) .ready (function () {
+    //$ (".theloai") .click (function () {
+    //alert ("a");
+    //$ (".loaitin") .hide (1000)
+    //$ (".loaitin") .show (1000)});
+  //});
+  //Khi click lần thứ nhất hide, lần thứ hai show ta sử dụng slideToggle()
+  //$(document).ready(function() {
+  //$(".theloai").click(function() {
+  //$(".loaitin").slideToggle(1000);
+  //});
+  //});
+  //Luc chay len chi co 1 thang loaitin hien tat ca loaitin con lai an di
+  $(document).ready(function() {
+    $(".theloai").click(function() {
+      $(this).next().slideToggle(1000);
+    });
+  });
+
+
+  
+</script>
+</html>
